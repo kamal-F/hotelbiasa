@@ -9,6 +9,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
+
 /**
  * TransaksiController implements the CRUD actions for Transaksi model.
  */
@@ -68,12 +69,12 @@ class TransaksiController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
         	
         	//update status kamar
-        	$modelKamar = $model->kamar;
+        	$modelKamar = $model->kamar; //teknik magic get set        	
         	$modelKamar->status = 1;
         	$modelKamar->save();
         	
             return $this->redirect(['view', 'id' => $model->id]);
-        } else {
+        } else {        	
             return $this->render('create', [
                 'model' => $model,
             ]);

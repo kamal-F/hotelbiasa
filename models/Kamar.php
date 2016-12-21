@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "kamar".
@@ -46,5 +47,9 @@ class Kamar extends \yii\db\ActiveRecord
             'Description' => 'Description',
             'status' => 'Status',
         ];
+    }
+    
+    public function getDropdownKamar(){
+    	return ArrayHelper::map(self::find()->all(), 'id', 'name');    	
     }
 }

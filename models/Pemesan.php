@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "pemesan".
@@ -43,5 +44,9 @@ class Pemesan extends \yii\db\ActiveRecord
             'ktp' => 'Ktp',
             'description' => 'Description',
         ];
+    }
+    
+    public function getDropdownPemesan(){
+    	return ArrayHelper::map(self::find()->all(), 'id', 'ktp');
     }
 }
