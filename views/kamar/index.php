@@ -10,6 +10,9 @@ use yii\grid\GridView;
 $this->title = 'Kamars';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<?php 
+echo $midata['data1'];
+?>
 <div class="kamar-index">
 
     <h1><?= Html::encode($this->title) ?></h1>

@@ -37,10 +37,11 @@ class KamarController extends Controller
     {
         $searchModel = new KamarSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
+        
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+        	'midata' =>['data1'=>'ok', 'data2'=>'not ok'],	
         ]);
     }
 
@@ -70,6 +71,7 @@ class KamarController extends Controller
         } else {
             return $this->render('create', [
                 'model' => $model,
+          		'status' =>[0=>'tersedia', 1=>'tertempati'],
             ]);
         }
     }
@@ -89,6 +91,7 @@ class KamarController extends Controller
         } else {
             return $this->render('update', [
                 'model' => $model,
+           		'status' =>[0=>'tersedia', 1=>'tertempati'],
             ]);
         }
     }
